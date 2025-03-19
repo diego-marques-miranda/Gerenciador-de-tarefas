@@ -1,4 +1,4 @@
-import {use, useState} from 'react'
+import {use, useEffect, useState} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,7 +7,7 @@ import CreateTask from "./Components/CreateTask.jsx";
 
 function App() {
     
-    const [tasks, setTasks] = useState([])
+    const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || [] );
     
     function TaskOnClick(taskId)
     {
@@ -104,6 +104,10 @@ function App() {
         
         setTasks([...tasks, task]);
     }
+
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
         
     return (
     <div className="w-full min-h-screen bg-teal-500 text-gray-200 flex flex-col items-center p-5">

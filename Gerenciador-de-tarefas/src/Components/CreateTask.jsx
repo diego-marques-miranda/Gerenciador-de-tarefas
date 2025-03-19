@@ -1,4 +1,5 @@
 import {useState} from "react";
+import Input from "./Input.jsx";
 
 function CreateTask(props)
 {
@@ -15,9 +16,10 @@ function CreateTask(props)
     
     return (
         <div className="shadow-md p-5 m-5 w-100 bg-teal-300 rounded-md">
-            <input value={task} onChange={(e) => setTask(e.target.value)} type="text" 
-                   className=" shadow-md hover:bg-teal-100 hover:text-gray-700 transition-colors duration-300 focus:ring-3 focus:text-black focus:ring-green-200 outline-none w-full h-10 bg-teal-50 p-3 rounded-md text-gray-500" 
-                   placeholder="Digite sua tarefa..."
+            <Input value={task} 
+                   type="text" 
+                   placeholder="Digite uma tarefa..."
+                   onChange={(e) => setTask(e.target.value)}
                    onKeyDown={(e) => HandleEnterClick(e)}
             />
             <button onClick={() => {
