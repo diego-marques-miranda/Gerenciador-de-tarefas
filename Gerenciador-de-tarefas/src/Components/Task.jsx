@@ -1,7 +1,7 @@
 function Task(props)
 {
 
-    const check = "🗸";
+    const check = "✅";
     const upArrow = "↑";
     const downArrow = "↓";
     const exclude = "✕";
